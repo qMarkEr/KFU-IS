@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Vijener
+namespace Vigenere_OS
 {
     internal static class CheckField
     {
-        static Func<char, bool> CheckisDigitOrLetter = (char c) => (!char.IsLetter(c) && !char.IsDigit(c));
-        static Func<char, bool> CheckisLetter = (char c) => (char.IsLetter(c));
-        static Func<char, string, bool> CheckAlphabet = (char c, string str) => (str.Contains(c));
+        static Func<char, bool> CheckisDigitOrLetter = (c) => !char.IsLetter(c) && !char.IsDigit(c);
+        static Func<char, bool> CheckisLetter = (c) => char.IsLetter(c);
+        static Func<char, string, bool> CheckAlphabet = (c, str) => str.Contains(c);
         private static bool MainCheck(string data, string type, Func<char, bool> checkType)
         {
-            if (string.IsNullOrEmpty(data)) {
+            if (string.IsNullOrEmpty(data))
+            {
                 MessageBox.Show($"Empty {type}");
                 return false;
             }
